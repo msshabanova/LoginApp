@@ -34,6 +34,11 @@ final class LoginViewController: UIViewController {
         // Введенное имя валидно, разрешаем переход
         return true
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let welcomeVC = segue.destination as? WelcomeViewController
+        welcomeVC?.userName = userName
+    }
 
     
     @IBAction func showUserName() {
