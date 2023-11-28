@@ -106,7 +106,7 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="logOut" destination="pGk-8y-wjM" eventType="touchUpInside" id="AJf-Bh-8zf"/>
+                                    <segue destination="8eG-s5-CaG" kind="unwind" unwindAction="unwindFor:" id="bAb-CL-Aeq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -120,11 +120,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="logOutButton" destination="bFl-dR-0Ol" id="kxj-av-DX4"/>
                         <outlet property="welcomeLabel" destination="G32-kL-KUP" id="gqr-kB-LnT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6i9-Pq-op9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="8eG-s5-CaG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="844" y="-2"/>
         </scene>
