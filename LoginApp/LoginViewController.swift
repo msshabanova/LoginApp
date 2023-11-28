@@ -24,8 +24,6 @@ final class LoginViewController: UIViewController {
         logInButton.layer.cornerRadius = 10
         userNameTextField.layer.cornerRadius = 10
         passwordTextField.layer.cornerRadius = 10
-        
-        self.hideKeyboardWhenTappedAround()
     }
     
     //MARK: - IBActions
@@ -52,6 +50,11 @@ final class LoginViewController: UIViewController {
         present(alert, animated: true)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super .touchesBegan(touches, with: event)
+        self.view.endEditing(true)
+    }
+    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard userNameTextField.text == userName, passwordTextField.text == password else {
             showAlert(with: "Invalid login or password", and: "Please, enter correct login or password")
@@ -64,18 +67,5 @@ final class LoginViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let welcomeVC = segue.destination as? WelcomeViewController
         welcomeVC?.userName = userName
-    }
-}
-
-
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
     }
 }
